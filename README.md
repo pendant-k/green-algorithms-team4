@@ -16,4 +16,7 @@ sudo chmod 777 run_process.sh
 * 혹시 모르니 ./ 붙이기
 
 ### 3. result 확인
+
+```shell
 cat result
+```
