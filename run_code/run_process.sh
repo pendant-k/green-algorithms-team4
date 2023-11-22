@@ -2,8 +2,8 @@
 
 
 # 1. input file path를 argument로 넘겨 받고 file path 변수에 저장하기
-input_file="./input.java"
-# input_file="./$1"
+# input_file="./input.java"
+input_file="$1"
 
 
 # 2. java compile 명령어를 실행하고, compile error 확인하기
