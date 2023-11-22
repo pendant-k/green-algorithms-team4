@@ -17,8 +17,8 @@ fi
 
 
 # 3. compile error가 없다면 ./run 에 컴파일된 파일을 argument를 넘겨주어서 실행하기
-class_file="./input.class"
-# class_file="${input_file%.java}.class"
+# class_file="./input.class"
+class_file="${input_file%.java}.class"
 
 
 # 4. ./run의 결과를 space 단위로 split해 세 변수에 저장하기
