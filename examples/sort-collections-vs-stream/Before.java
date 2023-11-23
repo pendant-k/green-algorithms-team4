@@ -4,7 +4,7 @@ import java.util.Comparator;
 import java.util.stream.Collectors;
 
 public class Before {
-    private static final int LOOP = 10000;
+    private static final int LOOP = 10_000;
 
     public static void main(String[] args) {
         List<Item> list = new ArrayList();
