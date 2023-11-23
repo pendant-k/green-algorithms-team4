@@ -21,6 +21,9 @@ sudo chmod 777 run_process.sh # 안 되면 sudo 빼거나 아래 코드 바로 �
 cat result
 ```
 
-### 4. 에러 코드
-* (1) 0 compile_error [error message] : 컴파일 에러, 메시지 확인하기
-* (2) 0 runtime_error : 런타임 에러, 메시지 없음
+### 4. result
+* [status = 1] [runtime(μs)] [peak memory usage(KB)]
+
+### 5. 에러 코드
+* (1) [status = 0] compile_error [error message] : 컴파일 에러, 메시지 확인하기
+* (2) [status = 0] runtime_error : 런타임 에러, 메시지 없음
