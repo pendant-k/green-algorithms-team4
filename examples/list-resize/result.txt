@@ -1,4 +1,0 @@
-실행 시간(milli seconds) : 29
-46690560 bytes
-실행 시간(milli seconds) : 63
-63465680 bytes
