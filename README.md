@@ -13,7 +13,7 @@ chmod 777 run_process.sh
 ./run_process.sh [file_path]
 ```
 * chmod에서 에러 나면 앞에 sudo 붙이거나 아래 코드 바로 실행해보기
-** sudo chmod 777 run_process.sh
+  * sudo chmod 777 run_process.sh
 * file_path : ./[path]
 * 혹시 모르니 ./ 붙이기
 
