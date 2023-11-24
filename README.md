@@ -31,6 +31,10 @@ cat result
 * (1) [status = 0] compile_error [error message] : 컴파일 에러, 메시지 확인하기
 * (2) [status = 0] runtime_error : 런타임 에러, 메시지 없음
 
+### 6. Example
+![image](https://github.com/pendant-k/green-algorithms-team4/assets/81512592/3fc4c13f-31ea-44c4-9acc-f11f22e12d88)
+
+
 ## How to use run.sh
 
 ```bash
