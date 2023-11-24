@@ -4,6 +4,7 @@
 
 ### 1. run_code 폴더에 있는 Makefile 실행
 ```shell
+cd run_code
 make
 ```
 
