@@ -1,0 +1,6 @@
+실행 시간(milli seconds) : 17008
+1288282904 bytes
+실행 시간(milli seconds) : 20438
+1086960992 bytes
+실행 시간(milli seconds) : 3967
+1087001376 bytes
