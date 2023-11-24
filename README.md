@@ -13,6 +13,7 @@ make
 chmod 777 run_process.sh
 ./run_process.sh [file_path]
 ```
+* [file_path] 안에 있는 코드를 ./run_code 폴더로 copy 한 후 실행함
 * chmod에서 에러 나면 앞에 sudo 붙이거나 2번째 줄 코드 바로 실행해보기
   * sudo chmod 777 run_process.sh
 * file_path : ./[path]
