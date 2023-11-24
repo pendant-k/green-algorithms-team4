@@ -20,10 +20,8 @@ int main(int argc, char* argv[])
     if (child_pid == 0) {
         // 자식 프로세스 코드
         // 여기에서 실행할 파일을 지정하고 실행
-        printf("child enter: %s\n", argv[1]);
 
         char* child_argv[] = { "java", argv[1], NULL };
-        // printf("%s\n", child_argv[0]);
         execvp(child_argv[0], child_argv);
 
         // // execvp가 실패했을 때 실행되는 코드
