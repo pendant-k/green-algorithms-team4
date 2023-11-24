@@ -7,4 +7,4 @@ $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -o $@ $^
 
 clean: 
-	rm $(TARGET) input
+	rm $(TARGET) input result emission
