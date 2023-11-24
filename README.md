@@ -1,6 +1,6 @@
 # green-algorithms-team4
 
-## How to use
+## How to use run_process.sh
 
 ### 1. run_code 폴더에 있는 Makefile 실행
 ```shell
@@ -28,3 +28,13 @@ cat result
 ### 5. 에러 코드
 * (1) [status = 0] compile_error [error message] : 컴파일 에러, 메시지 확인하기
 * (2) [status = 0] runtime_error : 런타임 에러, 메시지 없음
+
+## How to use run.sh
+
+```bash
+cd run_code && make exec
+cd ..
+
+./run.sh examples/{optimization}
+./run.sh examples/{optimization} {number} # run repeatedly for {number} times
+```
