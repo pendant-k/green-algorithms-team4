@@ -9,7 +9,7 @@ public class After {
     }
 
     for (Integer e: list) {
-      int result = e;
+      e++;
     }
   }
 }

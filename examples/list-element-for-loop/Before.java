@@ -10,7 +10,8 @@ public class Before {
 
     int size = list.size();
     for(int i = 0; i < size; i++) {
-      int result = list.get(i);
+      Integer result = list.get(i);
+      result++;
     }
   }
 }
