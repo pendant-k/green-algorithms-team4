@@ -1,7 +1,10 @@
 public class Before {
   public static void main(String[] args) {
-    for(int i = 0; i < 1000000; i++) {
-      new StringBuilder().append("string");
+    int dataSize = 5000000;
+    StringBuilder[] stringBuilderList = new StringBuilder[dataSize];
+
+    for (int i = 0; i < dataSize; i++) {
+      stringBuilderList[i] = new StringBuilder().append("value");
     }
   }
 }
