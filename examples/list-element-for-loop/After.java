@@ -9,7 +9,7 @@ public class After {
     }
 
     for (Integer e: list) {
-      list.get(e);
+      int result = e;
     }
   }
 }
