@@ -1,11 +1,11 @@
 public class Before {
   public static int function(int a) {
     int result = 0;
-    for (int i = 0; i < 1000000; i++) {
+    for (int i = 0; i < 100000; i++) {
       result += i;
     }
 
-    if (a < 8000) return a;
+    if (a < 9999) return a;
     return result;
   }
 
