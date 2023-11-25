@@ -24,7 +24,8 @@ chmod 777 run_process.sh
 * (2) [status = 0] runtime_error : 런타임 에러, 메시지 없음
 
 ### 5. Example
-![image](https://github.com/pendant-k/green-algorithms-team4/assets/81512592/9d504b9a-81fe-4aec-a403-a8577a01defa)
+![image](https://github.com/pendant-k/green-algorithms-team4/assets/81512592/1765537d-6558-42ee-8b3e-9a801809c801)
+
 
 
 ## How to use run.sh
