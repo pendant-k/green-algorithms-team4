@@ -17,7 +17,7 @@ chmod 777 run_process.sh
 * iteration_number를 입력하지 않으면 result.txt에 저장
 
 ### 3. result format
-* [status = 1] [mean_runtime(μs)] [mean_peak memory usage(KB)]
+* [status = 1] [mean_runtime(.6s)] [mean_peak memory usage(KB)]
 
 ### 4. 에러 코드
 * (1) [status = 0] compile_error [error message] : 컴파일 에러, 메시지 확인하기
