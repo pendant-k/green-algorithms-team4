@@ -1,4 +1,4 @@
-public class After {
+public class Before {
     public static final class ImmutablePoint {
         private final double x;
         private final double y;

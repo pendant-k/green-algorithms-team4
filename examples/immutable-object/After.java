@@ -1,4 +1,4 @@
-public class Before {
+public class After {
     public static class Point {
         private double x;
         private double y;
