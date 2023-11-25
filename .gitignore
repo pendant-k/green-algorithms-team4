@@ -1,4 +1,4 @@
 **/*.txt
 run_code/*
-run_code/!*.*
-run_code/!Makefile
+!run_code/*.*
+!run_code/Makefile
