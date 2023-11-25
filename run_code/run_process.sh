@@ -1,48 +1,39 @@
 #!/bin/bash
 
 
-# 1. input file path를 argument로 넘겨 받고 file path 변수에 저장하기
-# input_file="./input.java"
-input_file="$1"
-echo "before copy code: $input_file"
-
-# example code 복사
-cp $input_file .
-input_file="$(ls | grep .java)"
-echo "after copy code: $input_file"
-
-# 2. java compile 명령어를 실행하고, compile error 확인하기
-compile_result=$(javac "$input_file" 2>&1)
-
-if [ $? -ne 0 ]; then
-    # 컴파일 에러가 발생한 경우
-    echo "0 compile_error $compile_result"
-    rm $input_file
-    exit 1
+# input file path를 argument로 넘겨 받고 file path 변수에 저장하기
+input_path="$1"
+result="$input_path/result.txt"
+iter=1
+if [ "$#" -eq 2 ]; then
+    iter=$2
+    result="$input_path/result_mean_$iter.txt"
 fi
+rm $result
 
+files=("$input_path/Before" "$input_path/After")
+for file in "${files[@]}"; do
+    # 컴파일
+    compile_result=$(javac -d . "$file.java" 2>&1)
+    if [ $? -ne 0 ]; then
+        # 컴파일 에러 발생
+        echo "0 compile_error $compile_result"
+        exit 1
+    fi
 
-# 3. compile error가 없다면 ./run 에 컴파일된 파일을 argument를 넘겨주어서 실행하기
-# class_file="./input.class"
-execute_file=${input_file%.java}
-class_file="$execute_file.class"
-echo $execute_file
-echo $class_file
-chmod 777 $class_file
+    # 실행 및 결과 분석
+    opt=$(basename "$file")
+    run_result=$(./run $opt $iter)
+    IFS=' ' read -r status_code result_type result_message <<< "$run_result"
+    
+    # status code에 따른 분기
+    # if [ "$status_code" -eq 1 ]; then
+    #     # status code가 1인 경우
+    #     echo "$(./calculate "$runtime" "$memory_usage")" > emission
+    # fi
 
-# 4. ./run의 결과를 space 단위로 split해 세 변수에 저장하기
-run_result=$(./run "$execute_file")
+    # 결과 저장
+    echo -e "$opt:\t$status_code $result_type $result_message" | tee -a $result
+done
 
-IFS=' ' read -r status_code result_type result_message <<< "$run_result"
-
-# 5. status code에 따른 분기
-if [ "$status_code" -eq "1" ]; then
-    # status code가 1인 경우
-    echo "$(./calculate "$runtime" "$memory_usage")" > emission
-fi
-
-
-# 6. 결과 저장
-echo "$status_code $result_type $result_message" > result
-cat result
-rm $input_file $class_file
+rm *.class
