@@ -52,12 +52,7 @@ public class After {
   }
 
   public static void main(String[] args) {
-    ArrayList<User> list = new ArrayList<User>();
-
-    for (int i = 0; i < 100000; i++) {
-      Score score = getAnotherScore();
-      list.add(new User("name", 25, "nickname", score));
-    }
+    ArrayList<User> list = init();
 
     for (User u: list) {
       setDirectly(u);
