@@ -2,7 +2,7 @@
 
 
 # input file path를 argument로 넘겨 받고 file path 변수에 저장하기
-input_path="$1"
+input_path="../examples/$1"
 result="$input_path/result.txt"
 iter=1
 if [ "$#" -eq 2 ]; then

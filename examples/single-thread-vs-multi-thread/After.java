@@ -13,6 +13,7 @@ public class After {
 
         ExecutorService executorService = Executors.newFixedThreadPool(numThreads);
         long chunkSize = totalIterations / numThreads;
+        long chunkStart = 0;
 
         try {
             long sum = 0;
@@ -27,13 +28,22 @@ public class After {
 
             Future<Long>[] futures = new Future[numThreads];
             for (int i = 0; i < numThreads; i++) {
-                futures[i] = executorService.submit(task);
+                final int threadIndex = i;
+                futures[i] = executorService.submit(() -> {
+                    long partialSum = 0;
+                    long start = chunkSize * threadIndex;
+                    for (long j = start; j < start + chunkSize; j++) {
+                        partialSum += j;
+                    }
+                    return partialSum;
+                });
             }
 
             for (int i = 0; i < numThreads; i++) {
                 sum += futures[i].get();
             }
-
+    
+            // System.out.println(sum);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {

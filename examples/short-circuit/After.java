@@ -9,7 +9,7 @@ public class After {
     private static void withShortCircuit(int iterations) {
         boolean result;
         for (int i = 0; i < iterations; i++) {
-            result = (i > iterations/2) && (i % 10 == 0);
+            result = (i * 2 > iterations) || (i % 10 == 0);
         }
     }
 }

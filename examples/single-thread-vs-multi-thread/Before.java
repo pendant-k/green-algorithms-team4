@@ -13,6 +13,7 @@ public class Before {
         for (long i = 0; i < totalIterations; i++) {
             sum += i;
         }
+        // System.out.println(sum);
     }
 
     public static void main(String[] args) {

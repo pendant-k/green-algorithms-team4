@@ -20,7 +20,7 @@ public class After {
         int numberThreadsB = 10;
         int iterB = 1000000;
 
-        // Create and start 1000 threads that invoke methodA
+        // Create and start threads that invoke methodA
         Thread[] threadsA = new Thread[numberThreadsA];
         for (int i = 0; i < numberThreadsA; i++) {
             threadsA[i] = new Thread(() -> {
@@ -31,7 +31,7 @@ public class After {
             threadsA[i].start();
         }
 
-        // Create and start another 1000 threads that invoke methodB
+        // Create and start another threads that invoke methodB
         Thread[] threadsB = new Thread[numberThreadsB];
         for (int i = 0; i < numberThreadsB; i++) {
             threadsB[i] = new Thread(() -> {
@@ -54,7 +54,7 @@ public class After {
             e.printStackTrace();
         }
 
-        // Print the final values of a and b
+        // Print the final values of b
         // System.out.println("Final value of b: " + example.b);
     }
 }
