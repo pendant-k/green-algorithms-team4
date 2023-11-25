@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 
 class User {
@@ -17,7 +16,7 @@ public class Before {
   static public ArrayList<User> init() {
     ArrayList<User> list = new ArrayList<User>();
 
-    for (int i = 1; i <= 1000000; i++) {
+    for (int i = 1; i <= 100000; i++) {
       list.add(new User(i, "name"));
     }
     return list;
@@ -29,6 +28,6 @@ public class Before {
     list.stream()
       .filter(item -> item.id > 2)
       .filter(item -> item.id < 5)
-      .toArray();
+      .collect(Collectors.toList());
   }
 }
