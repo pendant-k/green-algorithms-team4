@@ -29,16 +29,23 @@ public class Before {
   static public ArrayList<User> init() {
     ArrayList<User> list = new ArrayList<User>();
 
-    for (int i = 0; i < 100000; i++) {
-      Score score = getAnotherScore();
+    for (int i = 0; i < 1000000; i++) {
+      Score score = getRandomScore();
       list.add(new User("name", 25, "nickname", score));
     }
     return list;
   }
 
-  static public Score getAnotherScore() {
+  static public Score getRandomScore() {
     int midScore = (int) Math.random();
     int finalScore = (int) Math.random();
+
+    return new Score(midScore, finalScore);
+  }
+
+  static public Score getUpdatedScore(Score score) {
+    int midScore = score.midtermScore + 1;
+    int finalScore = score.finalScore + 1;
 
     return new Score(midScore, finalScore);
   }
@@ -47,7 +54,7 @@ public class Before {
     ArrayList<User> list = init();
 
     for (User u: list) {
-      Score newScore = getAnotherScore();
+      Score newScore = getUpdatedScore(u.score);
       u.score = newScore;
     }
   }
