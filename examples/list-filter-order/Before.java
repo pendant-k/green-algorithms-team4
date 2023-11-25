@@ -17,7 +17,7 @@ public class Before {
   static public ArrayList<User> init() {
     ArrayList<User> list = new ArrayList<User>();
 
-    for (int i = 1; i <= 10000; i++) {
+    for (int i = 1; i <= 1000000; i++) {
       list.add(new User(i, "name"));
     }
     return list;
@@ -27,8 +27,8 @@ public class Before {
     ArrayList<User> list = init();
 
     list.stream()
-      .filter(item -> item.id > 100)
-      .filter(item -> item.id < 5000)
+      .filter(item -> item.id > 2)
+      .filter(item -> item.id < 5)
       .toArray();
   }
 }
