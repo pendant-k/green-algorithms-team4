@@ -1,1 +1,4 @@
 **/*.txt
+run_code/*
+run_code/!*.*
+run_code/!Makefile
