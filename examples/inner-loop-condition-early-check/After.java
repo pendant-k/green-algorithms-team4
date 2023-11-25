@@ -1,5 +1,4 @@
 import java.util.ArrayList;
-import java.util.List;
 import java.util.stream.Collectors;
 import java.util.Random;
 
@@ -31,16 +30,14 @@ public class After {
   public static void main(String[] args) {
     ArrayList<User> list = init();
 
-    List<User> filteredList = list.stream()
-      .filter(item -> item.id < 5)
-      .collect(Collectors.toList());
-    
     int count = 0;
 
-    for (User u1 : filteredList) {
-        for (User u2: filteredList) {
-            if (u1.id == u2.id) {
-                count += 1;
+    for (User u1 : list) {
+        if (u1.id < 5) {
+            for (User u2 : list) {
+                if (u1.id == u2.id) {
+                    count += 1;
+                }
             }
         }
     }

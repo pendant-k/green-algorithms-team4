@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.stream.Collectors;
+import java.util.Random;
 
 class User {
   public User(int id, String name) {
@@ -15,9 +16,13 @@ class User {
 public class Before {
   static public ArrayList<User> init() {
     ArrayList<User> list = new ArrayList<User>();
+    int totalUsers = 100000;
+    int maxUserId = totalUsers / 10;
+    long seed = 42;
+    Random random = new Random(seed);
 
-    for (int i = 1; i <= 10000; i++) {
-      list.add(new User(i, "name"));
+    for (int i = 1; i <= totalUsers; i++) {
+      list.add(new User(random.nextInt(maxUserId), "name"));
     }
     return list;
   }
@@ -26,12 +31,15 @@ public class Before {
     ArrayList<User> list = init();
 
     int count = 0;
-    for (int i = 5000; i >= 1; i--) {
-      for (User u : list) {
-        if (u.id == i && u.id < 5) {
-          count = count + 1;
+
+    for (User u1 : list) {
+        if (u1.id < 5) {
+            for (User u2 : list) {
+                if (u1.id == u2.id) {
+                    count += 1;
+                }
+            }
         }
-      }
     }
   }
 }
