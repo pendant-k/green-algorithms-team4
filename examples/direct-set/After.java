@@ -44,10 +44,11 @@ public class After {
   }
 
   static public void setDirectly(User user) {
-    Score newScore = getAnotherScore();
+    int midScore = (int) Math.random();
+    int finalScore = (int) Math.random();
 
-    user.score.midtermScore = newScore.midtermScore;
-    user.score.finalScore = newScore.finalScore;
+    user.score.midtermScore = midScore;
+    user.score.finalScore = finalScore;
   }
 
   public static void main(String[] args) {
