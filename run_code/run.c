@@ -12,8 +12,8 @@ int main(int argc, char* argv[])
     int status;
     int iter = argc == 3 ? atoi(argv[2]) : 1;
     long total_runtime = 0, total_memusage = 0;
-    
-    for (int i = 0; i < iter; i ++) {
+
+    for (int i = 0; i < iter; i++) {
 
         child_pid = fork();
         if (child_pid == -1) {
@@ -59,7 +59,7 @@ int main(int argc, char* argv[])
         }
     }
 
-    printf("1 %ld %ld", total_runtime /= iter, total_memusage /= iter);
+    printf("1 %ld %ld", total_runtime / iter, total_memusage / iter);
 
     return 0;
 }
