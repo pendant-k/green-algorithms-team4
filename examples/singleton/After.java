@@ -6,6 +6,8 @@ class Singleton {
   ArrayList<BigDecimal> data;
 
   public Singleton() {
+    this.data = new ArrayList<BigDecimal>();
+    
     for (int i = 0; i < 10000; i++) {
       this.data.add(new BigDecimal(i));
     }
@@ -20,7 +22,6 @@ class Singleton {
     return instance;
   }
 }
-
 
 public class After {
   public static void main(String[] args) {
