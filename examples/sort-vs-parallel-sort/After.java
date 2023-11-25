@@ -4,9 +4,9 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Collectors;
 
-public class Before {
+public class After {
 
-    private static final int N = 50000000;
+    private static final int N = 1000000;
     private static final List<Integer> testData = new ArrayList<>();
 
     public static List<Integer> init() {

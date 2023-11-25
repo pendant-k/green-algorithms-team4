@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class After {
+public class Before {
 
     private static final List<Integer> list = new ArrayList<>();
     private static final int LIST_SIZE = 100000000;
@@ -15,19 +15,19 @@ public class After {
         }
     }
 
-    public static void forEachTest() {
+    public static void forTest() {
 
         MIN = Integer.MAX_VALUE;
-        list.forEach(item -> {
-            if (item < MIN) {
-                MIN = item;
+        for (int i = 0; i < LIST_SIZE; i++) {
+            if (list.get(i) < MIN) {
+                MIN = list.get(i);
             }
-        });
+        }
     }
 
     public static void main(String[] args) {
 
         init();
-        forEachTest();
+        forTest();
     }
 }
