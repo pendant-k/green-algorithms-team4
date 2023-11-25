@@ -1,9 +1,9 @@
-public class Before {
-    public static class Point {
-        private double x;
-        private double y;
+public class After {
+    public static final class ImmutablePoint {
+        private final double x;
+        private final double y;
 
-        public Point(double x, double y) {
+        public ImmutablePoint(double x, double y) {
             this.x = x;
             this.y = y;
         }
@@ -16,12 +16,12 @@ public class Before {
             return y;
         }
 
-        public void setX(double x) {
-            this.x = x;
+        public ImmutablePoint withX(double newX) {
+            return new ImmutablePoint(newX, this.y);
         }
 
-        public void setY(double y) {
-            this.y = y;
+        public ImmutablePoint withY(double newY) {
+            return new ImmutablePoint(this.x, newY);
         }
 
         public String toString() {
@@ -30,16 +30,29 @@ public class Before {
     }
 
     public static void main(String[] args) {
-        Point point = new Point(1.0, 2.0);
+        ImmutablePoint point = new ImmutablePoint(1.0, 2.0);
 
-        //System.out.println("Before optimization:");
+        //System.out.println("After optimization:");
         //System.out.println("Original Point: " + point);
 
-        // Modifying the point
-        point.setX(3.0);
-        point.setY(4.0);
+        // Creating a new point with modified values
+        ImmutablePoint newPoint = point.withX(3.0).withY(4.0);
 
-        //System.out.println("Modified Point: " + point);
+        //System.out.println("Modified Point: " + newPoint);
+
+        // Simulating a complex operation without modifying the immutable Point
+        ImmutablePoint afterComplexOperation = complexOperation(newPoint);
+
+        //System.out.println("After Complex Operation: " + afterComplexOperation);
+    }
+
+    private static ImmutablePoint complexOperation(ImmutablePoint point) {
+        // Simulating a complex operation without modifying the immutable Point
+        for (int i = 0; i < 1000000; i++) {
+            // Creating a new point with modified values
+            point = point.withX(point.getX() + 0.1).withY(point.getY() - 0.1);
+        }
+        return point;
     }
 }
 

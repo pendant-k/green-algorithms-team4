@@ -1,9 +1,9 @@
-public class After {
-    public static final class ImmutablePoint {
-        private final double x;
-        private final double y;
+public class Before {
+    public static class Point {
+        private double x;
+        private double y;
 
-        public ImmutablePoint(double x, double y) {
+        public Point(double x, double y) {
             this.x = x;
             this.y = y;
         }
@@ -16,12 +16,12 @@ public class After {
             return y;
         }
 
-        public ImmutablePoint withX(double newX) {
-            return new ImmutablePoint(newX, this.y);
+        public void setX(double x) {
+            this.x = x;
         }
 
-        public ImmutablePoint withY(double newY) {
-            return new ImmutablePoint(this.x, newY);
+        public void setY(double y) {
+            this.y = y;
         }
 
         public String toString() {
@@ -30,15 +30,29 @@ public class After {
     }
 
     public static void main(String[] args) {
-        ImmutablePoint point = new ImmutablePoint(1.0, 2.0);
+        Point point = new Point(1.0, 2.0);
 
-        //System.out.println("After optimization:");
+        //System.out.println("Before optimization:");
         //System.out.println("Original Point: " + point);
 
-        // Creating a new point with modified values
-        ImmutablePoint newPoint = point.withX(3.0).withY(4.0);
+        // Modifying the point
+        point.setX(3.0);
+        point.setY(4.0);
 
-        //System.out.println("Modified Point: " + newPoint);
+        //System.out.println("Modified Point: " + point);
+
+        // Perform a complex operation on the mutable Point
+        complexOperation(point);
+
+        //System.out.println("After Complex Operation: " + point);
+    }
+
+    private static void complexOperation(Point point) {
+        // Simulating a complex operation that modifies the mutable Point
+        for (int i = 0; i < 1000000; i++) {
+            point.setX(point.getX() + 0.1);
+            point.setY(point.getY() - 0.1);
+        }
     }
 }
 
