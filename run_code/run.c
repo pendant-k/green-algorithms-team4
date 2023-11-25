@@ -60,9 +60,9 @@ int main(int argc, char* argv[])
 
     long mean_runtime_s = (total_runtime_s / iter) + (total_runtime_us / iter) / 1000000;
     long mean_runtime_us = (total_runtime_us / iter) % 1000000;
-    long mean_runtime = mean_runtime_s * 1000000 + mean_runtime_us;
+    double mean_runtime = (double)(mean_runtime_s) + (double)(mean_runtime_us) / 1000000;
     long mean_memusage = total_memusage / iter;
-    printf("1 %ld %ld", mean_runtime, mean_memusage);
+    printf("1 %.6lf %ld", mean_runtime, mean_memusage);
 
     return 0;
 }
