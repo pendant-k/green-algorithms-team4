@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
     pid_t child_pid;
     int status;
     int iter = argc == 3 ? atoi(argv[2]) : 1;
-    long total_runtime = 0, total_memusage = 0;
+    long total_runtime_s = 0, total_runtime_us = 0, total_memusage = 0;
 
     for (int i = 0; i < iter; i++) {
 
@@ -46,20 +46,23 @@ int main(int argc, char* argv[])
             struct rusage ru_child, ru_parent;
 
             wait4(child_pid, &status, 0, &ru_child);
-            getrusage(RUSAGE_SELF, &ru_parent);
 
             if (!WIFEXITED(status)) {
                 printf("0 runtime_error\n");
                 exit(1);
             }
 
-            // printf("1 %ld %ld", ru_child.ru_utime.tv_usec + ru_child.ru_stime.tv_usec, ru_child.ru_maxrss);
-            total_runtime += ru_child.ru_utime.tv_usec + ru_child.ru_stime.tv_usec;
+            total_runtime_s += ru_child.ru_utime.tv_sec + ru_child.ru_stime.tv_sec;
+            total_runtime_us += ru_child.ru_utime.tv_usec + ru_child.ru_stime.tv_usec;
             total_memusage += ru_child.ru_maxrss;
         }
     }
 
-    printf("1 %ld %ld", total_runtime / iter, total_memusage / iter);
+    long mean_runtime_s = (total_runtime_s / iter) + (total_runtime_us / iter) / 1000000;
+    long mean_runtime_us = (total_runtime_us / iter) % 1000000;
+    long mean_runtime = mean_runtime_s * 1000000 + mean_runtime_us;
+    long mean_memusage = total_memusage / iter;
+    printf("1 %ld %ld", mean_runtime, mean_memusage);
 
     return 0;
 }
