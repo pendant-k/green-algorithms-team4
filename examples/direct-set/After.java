@@ -37,8 +37,8 @@ public class After {
   }
 
   static public Score getRandomScore() {
-    int midScore = (int) Math.random();
-    int finalScore = (int) Math.random();
+    int midScore = 50;
+    int finalScore = 50;
 
     return new Score(midScore, finalScore);
   }
