@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.Random;
 
 class User {
   public User(int id, String name) {
@@ -17,9 +18,12 @@ public class After {
   static public ArrayList<User> init() {
     ArrayList<User> list = new ArrayList<User>();
     int totalUsers = 10000;
+    int maxUserId = totalUsers / 10;
+    long seed = 42;
+    Random random = new Random(seed);
 
     for (int i = 1; i <= totalUsers; i++) {
-      list.add(new User(i, "name"));
+      list.add(new User(random.nextInt(maxUserId), "name"));
     }
     return list;
   }
