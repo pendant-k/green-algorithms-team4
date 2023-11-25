@@ -7,7 +7,7 @@ public class Before {
     }
 
     public static void main(String[] args) {
-        BigDecimal principal = new BigDecimal("10000");
+        BigDecimal principal = new BigDecimal("9000000");
         BigDecimal rate = new BigDecimal("0.05");
         int years = 5;
 

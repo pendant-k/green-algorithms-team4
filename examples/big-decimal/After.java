@@ -5,7 +5,7 @@ public class After {
     }
 
     public static void main(String[] args) {
-        double principal = 10000.0;
+        double principal = 9000000.0;
         double rate = 0.05;
         int years = 5;
 
