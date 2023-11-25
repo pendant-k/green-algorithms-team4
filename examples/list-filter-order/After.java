@@ -16,7 +16,7 @@ public class After {
   static public ArrayList<User> init() {
     ArrayList<User> list = new ArrayList<User>();
 
-    for (int i = 1; i <= 100000; i++) {
+    for (int i = 1; i <= 10000000; i++) {
       list.add(new User(i, "name"));
     }
     return list;
