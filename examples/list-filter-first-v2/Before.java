@@ -35,7 +35,7 @@ public class Before {
     for (User u1 : list) {
         for (User u2 : list) {
             if (u1.id < 5 && u1.id == u2.id) {
-                count += u1.id;
+                count += 1;
             }
         }
     }

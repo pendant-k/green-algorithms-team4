@@ -40,7 +40,7 @@ public class After {
     for (User u1 : filteredList) {
         for (User u2: filteredList) {
             if (u1.id == u2.id) {
-                count += u1.id;
+                count += 1;
             }
         }
     }
