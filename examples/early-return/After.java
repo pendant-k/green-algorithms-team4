@@ -3,7 +3,7 @@ public class After {
     if (a < 8000) return a;
 
     int result = 0;
-    for (int i = 0; i < 1000; i++) {
+    for (int i = 0; i < 1000000; i++) {
       result += i;
     }
     return result;
