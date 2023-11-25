@@ -51,7 +51,7 @@ public class After {
   }
 
   static public void setDirectly(User user) {
-    user.score = new Score(user.score.midtermScore + 1, user.score.finalScore + 1);
+    user.score = getUpdatedScore(user.score);
   }
 
   public static void main(String[] args) {
