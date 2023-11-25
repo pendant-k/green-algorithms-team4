@@ -1,7 +1,10 @@
 public class Before {
   public static void main(String[] args) {
-    for(int i = 0; i < 100000000; i++) {
-      String a = new String("abcdefghijklmnopqrstuvwxyz01234567890abcdefghijklmnopqrstuvwxyz01234567890abcdefghijklmnopqrstuvwxyz01234567890");
+    int dataSize = 1000000;
+    String[] stringObjectArray = new String[dataSize];
+    
+    for (int i = 0; i < dataSize; i++) {
+      stringObjectArray[i] = new String("value");
     }
   }
 }
